@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState} from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+//import axios from "axios"
+import Navbar from '../Navbar/Navbar';
+import Hero from "../Hero/Hero"
+import Activity from '../Activity/Activity';
+import Login from '../Login/Login';
+import Exercise from '../Exercise/Exercise';
+import Nutrition from '../Nutrition/Nutrition';
+import Sleep from '../Sleep/Sleep';
+import Register from '../Register/Register';
 
 function App() {
+  const [user, setUser] = useState({})
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navbar/>
+        <Routes>
+          <Route path = "/" element={<Hero/>}/>
+          <Route path="/activity" element={<Activity/>}></Route>
+          <Route path="/login" element={<Login user={user} setUser={setUser}/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/exercise" element={<Exercise/>}/>
+          <Route path="/nutrition" element={<Nutrition/>}/>
+          <Route path="/sleep" element={<Sleep/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,0 +1,12 @@
+
+.navbar {
+    background-color:#FFFF;
+}
+.icons-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #FFFF;
+    align-items: center;
+
+}
