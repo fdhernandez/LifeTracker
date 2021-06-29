@@ -15,7 +15,7 @@ function App() {
   const [user, setUser] = useState({})
   const [isFetching, setIsFetching] = useState(false)
   const [errors, setErrors] = useState(null)
-  
+
   return (
     <div className="App">
       <BrowserRouter>
