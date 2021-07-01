@@ -4,6 +4,16 @@ const db = require("../db");
 const {BCRYPT_WORK_FACTOR} = require("../config")
 
 class User {
+  static makePublicUser(user) {
+    return {
+      id: user.id,
+      email: user.email,
+      username: user.username,
+      isAdmin: user.is_admin,
+      createdAt: user.created_at,
+    };
+  }
+
   static async login(credentials) {
     const requiredFields = ["email", "password"];
     requiredFields.forEach((property) => {
@@ -20,16 +30,6 @@ class User {
       }
     }
     throw new UnauthorizedError("Invalid email/password combo");
-  }
-
-  static makePublicUser(user) {
-    return {
-      id: user.id,
-      email: user.email,
-      username: user.username,
-      isAdmin: user.is_admin,
-      createdAt: user.created_at,
-    };
   }
 
   static async register(credentials) {

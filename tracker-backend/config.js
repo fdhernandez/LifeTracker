@@ -5,6 +5,8 @@ require("colors")
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
 const SECRET_KEY = process.env.SECRET_KEY || "supersecretkey";
 
+const IS_TESTING = process.env.NODE_ENV === "test";
+
 function getDatabaseUri() {
     const dbUser = process.env.DATABASE_USER || "postgres"
     const dbPass = process.env.DATABASE_PASS ? encodeURI(process.env.DATABASE_PASS) : "postgres" //if that pw exists in the DB then we'll encode it, if not default to postgres

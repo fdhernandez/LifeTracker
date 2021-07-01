@@ -2,6 +2,8 @@
 const express = require("express")
 const User = require("../models/user")
 const router = express.Router()
+const { requireAuthenticatedUser } = require("../middleware/security")
+const { createUserJwt } = require("../utils/tokens")
 
 router.post("/login", requireAuthenticatedUser, async function (req, res, next) {
   try {

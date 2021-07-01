@@ -1,12 +1,15 @@
 
-.navbar {
-    background-color:#FFFF;
-}
+
 .icons-row{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #FFFF;
-    align-items: center;
+    
 
+}
+
+.watchimg {
+    display: flex;
+    width: 100px;
+    height: 50px;
 }
