@@ -30,7 +30,7 @@ export default function Exercise({ user, setAppState, exercises = []}) {
                   <div>{new Date(item.date).toLocaleString()}</div>
                 </div>
               </div>
-            )) : <div>No data yet</div>
+            )) : <div>No data</div>
           }
         </div>
       </>

@@ -2,7 +2,6 @@ const db = require('../db')
 const { BadRequestError, UnauthorizedError } = require('../utils/errors')
 
 class Activity {
-  /** Fetch total exercise time */
   static async listTotalExerciseTime({ user }) {
     if (!user) {
       throw new UnauthorizedError(`No user logged in.`)
@@ -19,7 +18,6 @@ class Activity {
     return results.rows[0]
   }
 
-  /** Fetch a list of all exercises of an user */
   static async listExercises({ user }) {
     if (!user) {
       throw new UnauthorizedError(`No user logged in.`)
@@ -36,7 +34,7 @@ class Activity {
     return results.rows
   }
 
-  /** Create an exercise into exercises table */
+
   static async createExercise({ exercise, user }) {
     if (!user) {
       throw new UnauthorizedError(`No user logged in.`)
@@ -72,8 +70,7 @@ class Activity {
     return results.rows[0]
   }
 
-  /** Fetch avg nutrition calories */
-  static async listAvgCalories({ user }) {
+  /*static async listAvgCalories({ user }) {
     if (!user) {
       throw new UnauthorizedError(`No user logged in.`)
     }
@@ -89,7 +86,7 @@ class Activity {
     return results.rows[0]
   }
 
-  /** Fetch a lsit of all nutritions of an user */
+  
   static async listNutritions({ user }) {
     if (!user) {
       throw new UnauthorizedError(`No user logged in.`)
@@ -143,7 +140,6 @@ class Activity {
     return results.rows[0]
   }
 
-  /** Fetch avg sleep time */
   static async listAvgSleepHours({ user }) {
     console.log("here")
     if (!user) {
@@ -161,7 +157,7 @@ class Activity {
     return results.rows[0]
   }
 
-  /** Fetch a lsit of all sleeps of an user */
+ 
   static async listSleeps({ user }) {
     if (!user) {
       throw new UnauthorizedError(`No user logged in.`)
@@ -206,7 +202,7 @@ class Activity {
       ]
     )
     return results.rows[0]
-  }
+  }*/
 }
 
 module.exports = Activity

@@ -24,9 +24,7 @@ export default function App() {
   const [totalExerciseTime, setTotalExerciseTime] = useState(0)
   
 
-  const handleLogIn = async () => {
-
-  }
+  
   const handleLogout = async () => {
     await API.logoutUser()
     setAppState({})
@@ -59,7 +57,6 @@ export default function App() {
   }
 
 
-  /** Fetch exercises for user */
   useEffect(() => {
     const fetchExercises = async () => {
       const { data, error } = await API.fetchExercises()
@@ -71,9 +68,9 @@ export default function App() {
       }
     }
     fetchExercises()
-  }, [])
+  }, [appState.user])
 
-   /** Fetch total exercise time by user */
+  
    useEffect(() => {
     const fetchExerciseTime = async () => {
       const { data, error } = await API.fetchTotalExerciseTime()
@@ -85,7 +82,7 @@ export default function App() {
       }
     }
     fetchExerciseTime()
-  }, [exercises, appState, isLoading])
+  }, [exercises, appState])
 
 
 
@@ -102,8 +99,8 @@ export default function App() {
           <Route path='/exercise' element={ <Exercise appState={appState} user={appState?.user} exercises={exercises}/>} />
           <Route path='/nutrition' element={ <Nutrition appState={appState} user={appState?.user} />} />
           <Route path='/sleep' element={ <Sleep appState={appState} user={appState?.user} />} />
-          <Route path='/register' element={ <Register handleLogIn={handleLogIn} setAppState={setAppState}/>} />
-          <Route path='/login' element={ <Login handleLogIn={handleLogIn} setAppState={setAppState}/>} />
+          <Route path='/register' element={ <Register  setAppState={setAppState}/>} />
+          <Route path='/login' element={ <Login  setAppState={setAppState}/>} />
 
           <Route path='/exercise/create' element={ <NewEx appState={appState} user={appState?.user} handleUpdateExercise={handleUpdateExercise}/>} />
         

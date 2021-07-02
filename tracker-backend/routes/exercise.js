@@ -1,4 +1,4 @@
-const express = require("express")
+/*const express = require("express")
 const Exercise = require("../models/exercise")
 const security = require("../middleware/security")
 const router = express.Router()
@@ -24,3 +24,4 @@ router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
 })
 
 module.exports = router
+*/

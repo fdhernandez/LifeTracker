@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import PageH from '../PageH/PageH.js'
+import PageH from '../PageH/PageH'
 import NoUser from "../NoUser/NoUser"
 import './Activity.css'
 

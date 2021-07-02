@@ -1,13 +1,13 @@
+
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
 const { PORT } = require("./config")
-const { BadRequestError, NotFoundError } = require("./utils/errors")
 const { NotFoundError } = require("./utils/errors")
-const authRoutes = require("./routes/auth")
+const authRouter = require("./routes/auth")
 const security = require("./middleware/security")
 const activityRouter = require('./routes/activity')
-const exerciseRoutes = require("./routes/exercise")
+
 
 const app = express()
 
@@ -15,13 +15,12 @@ app.use(cors())
 app.use(express.json())
 app.use(morgan('tiny'))
 app.use(security.extractUserFromJwt)
-app.use("/auth", authRoutes)
-//app.use("/exercise",exerciseRoutes)
+app.use('/auth', authRouter)
 app.use('/activity', activityRouter)
 
 // if endpoint doesn't exist then will send to NotFoundError
 app.use((req,res,next) => {
-    return next(new NotFoundError)
+    return next(new NotFoundError())
 })
 
 // if anything has reached this point, an error is involved
