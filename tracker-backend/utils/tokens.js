@@ -1,12 +1,14 @@
 const jwt = require("jsonwebtoken") 
 const { SECRET_KEY } = require("../config")
+const { validateFields } = require("./validate")
 
 const generateToken = (data) => jwt.sign(data, SECRET_KEY, { algorithm: "HS256", expiresIn: "2h" })
 
-const createUserJwt = (user) => {
+const createUserJwt = (creds) => {
+    validateFields({ required: ["username"], obj: creds, location: "token generation" })
     const payload = { 
-        email: user.email, 
-        isAdmin: user.isAdmin || false
+        username: creds.username, 
+        isAdmin: creds.isAdmin || false,
     }
     return generateToken(payload)
 }
@@ -23,5 +25,5 @@ const validateToken = (token) => {
 module.exports = {
     generateToken,
     createUserJwt,
-    validateToken
+    validateToken,
 }

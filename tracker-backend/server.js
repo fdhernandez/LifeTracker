@@ -5,6 +5,8 @@ const { PORT } = require("./config")
 const { BadRequestError, NotFoundError } = require("./utils/errors")
 const authRoutes = require("./routes/auth")
 const security = require("./middleware/security")
+const exerciseRoutes = require("./routes/exercise")
+
 const app = express()
 
 app.use(cors())
@@ -12,6 +14,7 @@ app.use(express.json())
 app.use(morgan('tiny'))
 app.use(security.extractUserFromJwt)
 app.use("/auth", authRoutes)
+app.use("/exercise",exerciseRoutes)
 
 // if endpoint doesn't exist then will send to NotFoundError
 app.use((req,res,next) => {

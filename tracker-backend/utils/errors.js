@@ -30,10 +30,17 @@ class NotFoundError extends ExpressError {
     }
 }
 
+class UnprocessableEntityError extends ExpressError {
+    constructor(message = "Unprocessable Entity") {
+      super(message, 422)
+    }
+  }
+
 module.exports = {
     ExpressError,
     BadRequestError,
     UnauthorizedError,
     ForbiddenError,
-    NotFoundError
+    NotFoundError,
+    UnprocessableEntityError,
 }

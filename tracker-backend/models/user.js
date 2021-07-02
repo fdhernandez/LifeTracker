@@ -70,7 +70,7 @@ class User {
 
     const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR
     );
-    const normalizedEmail = credentials.email.toLowerCase();
+    //const normalizedEmail = credentials.email.toLowerCase();
 
     const userResult = await db.query(
       `INSERT INTO users (email, password, username, is_admin)
@@ -78,7 +78,7 @@ class User {
        RETURNING id, email, username, is_admin, created_at;
       `,
       [
-        normalizedEmail,
+        //normalizedEmail,
         hashedPassword,
         credentials.username,
         credentials.isAdmin,
