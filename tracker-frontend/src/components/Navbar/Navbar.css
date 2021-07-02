@@ -1,8 +1,33 @@
-.navbar{
+.Navbar {
+    background-color: #b2ebf2;
     display: flex;
-    flex-direction: row;
-    padding-top: 1%;
-    align-items: center;
     justify-content: space-around;
-    background-color:#FFFF;
-}
+    align-items: center;
+    padding: 5px;
+  }
+  .Navbar a, .logout-link {
+    font-family: "Times New Roman", Times, serif;
+    text-decoration: none;
+    color: #000;
+    margin: 5px 10px;
+    font-size: 20px;
+    padding: 0 5px;
+  }
+  
+  .home-link {
+    width: 50px;
+  }
+  .home-link img {
+    width: 100%;
+  }
+  .login-link, .logout-link {
+    background-color: #4dd0e1;
+    border-radius: 4px;
+    box-shadow: 3px 3px 5px 1px #009688;
+  
+  }
+  .register-link {
+    background-color: #4dd0e1;
+    border-radius: 4px;
+    box-shadow: 3px 3px 5px 1px #009688;
+  }

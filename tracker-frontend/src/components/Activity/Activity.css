@@ -1,0 +1,43 @@
+.Activity {
+  background-color: #b2dfdb;
+}
+.activity-btns {
+  display: flex;
+  justify-content: flex-end;
+}
+.activity-btns a {
+  text-decoration: none;
+  font-family: 'Baloo 2', cursive;
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 18px;
+  font-weight: 500;
+  padding: 5px;
+  background-color: #fff;
+}
+.exercise-btn {
+  color: #00796b;
+  border: 2px solid #00695c;
+}
+.exercise-btn:hover {
+  color: #fff;
+  background-color: #00695c;
+}
+
+.nutrition-btn { 
+  color: #00796b;
+  border: 2px solid #00695c;
+}
+.nutrition-btn:hover {
+  color: #fff;
+  background-color: #00695c;
+}
+
+.sleep-btn {
+  color: #00796b;
+  border: 2px solid #00695c;
+}
+.sleep-btn:hover {
+  color: #fff;
+  background-color: #00695c;
+}

@@ -1,7 +1,6 @@
 import Button from '@material-ui/core/Button';
-import { useState } from "react"
-import { Grid, Paper, Avatar, TextField } from '@material-ui/core';
-import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import { useEffect, useState } from "react"
+import { Grid, Paper, TextField } from '@material-ui/core';
 //import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import apiClient from '../../services/apiClient';
@@ -70,9 +69,6 @@ export default function ExerciseForm() {
         <Grid>
             <Paper elevation={10} style={paperStyle}>
                 <Grid align="center">
-                    <Avatar>
-                        <FitnessCenterIcon />
-                    </Avatar>
                     <h2>
                         Record Nutrition
                     </h2>

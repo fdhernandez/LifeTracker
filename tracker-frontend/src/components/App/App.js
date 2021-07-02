@@ -1,5 +1,5 @@
 import './App.css';
-import { useState} from "react"
+import { useEffect, useState} from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 //import axios from "axios"
 import Navbar from '../Navbar/Navbar';
@@ -11,42 +11,107 @@ import Nutrition from '../Nutrition/Nutrition';
 import Sleep from '../Sleep/Sleep';
 import Register from '../Register/Register';
 //import InvalidLogin from '../InvalidLogin/InvalidLogin';
-import ExerciseForm from "../ExerciseForm/ExerciseForm";
-import { AppStateP} from "../../contexts/appStateContext"
+
+import NewEx from '../NewEx/NewEx.js'
+import API from '../../services/apiClient'
+
+export default function App() {
+  const [appState, setAppState] = useState({})
+  const [errors, setErrors] = useState({})
+  const [exercises, setExercises] = useState({}) 
+  const [isLoading, setIsLoading] = useState(false)
+  
+  const [totalExerciseTime, setTotalExerciseTime] = useState(0)
+  
+
+  const handleLogIn = async () => {
+
+  }
+  const handleLogout = async () => {
+    await API.logoutUser()
+    setAppState({})
+    console.log("app", appState)
+    setErrors(null)
+  }
+
+    /** Fetch user by token generated */
+  useEffect(() => {
+    const fetchUser = async () => {
+      setIsLoading(true)
+      console.log("refresh")
+      const { data } = await API.fetchUserFromToken()
+      if (data) {
+        setAppState((a) => ({...a, user: data.user}))
+      }
+      setIsLoading(false)
+    }
+
+    // only set token if it exists
+    const token = localStorage.getItem("tracker_token")
+    if (token) {
+      API.setToken(token)
+      fetchUser()
+    }
+  }, [])
+
+  const handleUpdateExercise = async (newExercise) => {
+    setExercises(oldExercises => [...oldExercises, newExercise])
+  }
 
 
-export default function AppContainer(){
-  return(
-    <AppStateP>
-      <App/>
-    </AppStateP>
-  )
-}
+  /** Fetch exercises for user */
+  useEffect(() => {
+    const fetchExercises = async () => {
+      const { data, error } = await API.fetchExercises()
+      if (data?.listExercises) {
+        setExercises(data.listExercises)
+      }
+      if (error) {
+        setErrors((e) => ({ ...e, error }))
+      }
+    }
+    fetchExercises()
+  }, [])
+
+   /** Fetch total exercise time by user */
+   useEffect(() => {
+    const fetchExerciseTime = async () => {
+      const { data, error } = await API.fetchTotalExerciseTime()
+      if (data?.totalTime) {
+        setTotalExerciseTime(data.totalTime)
+      }
+      if (error) {
+        setErrors((e) => ({ ...e, error }))
+      }
+    }
+    fetchExerciseTime()
+  }, [exercises, appState, isLoading])
 
 
-function App() {
-  //const [user, setUser] = useState({})
-  //const [isFetching, setIsFetching] = useState(false)
-  //const [errors, setErrors] = useState(null)
+
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar/>
+        {!isLoading ? 
+        <>
+        <Navbar user={appState?.user} handleLogout={handleLogout} isLoading={isLoading}/>
         <Routes>
-          <Route path = "/" element={<Hero/>}/>
-          <Route path="/activity" element={<Activity/>}></Route>
-          <Route path="/login" element={<Login />}/>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/exercise" element={<Exercise/>}/>
-          <Route path="/nutrition" element={<Nutrition/>}/>
-          <Route path="/sleep" element={<Sleep/>}/>
-          <Route path="/invalidlogin" element={<InvalidLogin/>}/>
-          <Route path="/exercise/form" element={<ExerciseForm />}/>
+          <Route path='/' element={ <Hero/> }/>
+          <Route path='/activity' element={ <Activity appState={appState} user={appState?.user} totalExerciseTime={totalExerciseTime} />} />
+          <Route path='/exercise' element={ <Exercise appState={appState} user={appState?.user} exercises={exercises}/>} />
+          <Route path='/nutrition' element={ <Nutrition appState={appState} user={appState?.user} />} />
+          <Route path='/sleep' element={ <Sleep appState={appState} user={appState?.user} />} />
+          <Route path='/register' element={ <Register handleLogIn={handleLogIn} setAppState={setAppState}/>} />
+          <Route path='/login' element={ <Login handleLogIn={handleLogIn} setAppState={setAppState}/>} />
+
+          <Route path='/exercise/create' element={ <NewEx appState={appState} user={appState?.user} handleUpdateExercise={handleUpdateExercise}/>} />
+        
         </Routes>
+        </> : null }
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-//export default App;
+
