@@ -14,6 +14,7 @@ const useStyles = makeStyles({
       display:"flex",
       flexDirection:"column",
       alignItems:"center"
+    
     },
     padd:{
         marginRight:10

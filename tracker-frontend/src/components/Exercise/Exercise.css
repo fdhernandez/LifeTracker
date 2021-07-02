@@ -4,7 +4,7 @@
   }
   .aty-btn a {
     text-decoration: none;
-    font-family: 'Baloo 2', cursive;
+    font-family: "Times New Roman", Times, serif;
     border-radius: 10px;
     font-size: 18px;
     margin: 18px;
@@ -57,9 +57,4 @@
   .aty-stats > div > span {
     font-size: 18px;
   }
- /* .aty-duration {
-  
-  }
-  .aty-intensity {
-  
-  }*/
+ 

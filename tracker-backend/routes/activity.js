@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const { requireAuthenticateUser } = require('../middleware/security')
+const { requireAuthenticatedUser } = require('../middleware/security')
 
 const Activity =  require('../models/activity')
 
 
-router.get('/exercises/total', requireAuthenticateUser, async (req, res, next) => {
+router.get('/exercises/total', requireAuthenticatedUser, async (req, res, next) => {
   try {
     const user = res.locals.user
     const totalTime = await Activity.listTotalExerciseTime({ user })
@@ -15,7 +15,7 @@ router.get('/exercises/total', requireAuthenticateUser, async (req, res, next) =
   }
 })
 
-router.get('/exercises', requireAuthenticateUser, async (req, res, next) => {
+router.get('/exercises', requireAuthenticatedUser, async (req, res, next) => {
   try {
     const user = res.locals.user
     const listExercises = await Activity.listExercises({ user })
@@ -25,7 +25,7 @@ router.get('/exercises', requireAuthenticateUser, async (req, res, next) => {
   }
 })
 
-router.post('/exercise', requireAuthenticateUser, async (req, res, next) => {
+router.post('/exercise', requireAuthenticatedUser, async (req, res, next) => {
   try {
     const user = res.locals.user
     const exercise = req.body.exercise

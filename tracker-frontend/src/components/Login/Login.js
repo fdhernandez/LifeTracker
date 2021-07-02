@@ -2,13 +2,9 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 //import axios from "axios"
 import "./Login.css"
-//mport {  Card } from "components"
 import Card from '../Card/Card';
-import InputField from '../InputField/InputField';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
 import API from '../../services/apiClient';
-//import PageH from '../PageH/PageH'
+import PageH from '../PageH/PageH'
 
 
 
@@ -53,46 +49,43 @@ export default function Login({handleLogIn, setAppState }) {
     }
 
     return (
-        <div className="Login">
-            <div className="splash-image" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)` }}>
-            < div className = "container">
-            <Card className ="login-card">
-            <h2>Sign In</h2>
-            {errors.form && <div className="error">{errors.form}</div>}
-            <br />
-            
-                <div className="form">
-                    <InputField name="email" label="Email" >
-                        <Input 
-                            type="email"
-                            name="email"
-                            placeholder="user@codepath.org"
-                            value={form.email}
-                            onChange={handleOnInputChange}
-                        />
-                         {errors.email && <div className="error">{errors.email}</div>}
-                    </InputField>
-                    <InputField name="password" label="Password" >
-                        <Input 
-                            type="password"
-                            name="password"
-                            placeholder="password"
-                            value={form.password}
-                            onChange={handleOnInputChange}
-                        />
-                         {errors.password && <div className="error">{errors.password}</div>}
-                    </InputField>
-
-                    <p className="to-register">
-                         Need an account? Sign up <Link to="/register">here.</Link>
-                    </p>
-                    <Button disabled={isLoading} onClick={handleOnSubmit}>
-                        {isLoading ? "Loading..." : "Login"}
-                    </Button>
-                </div>
-            </Card>
+      <div className="Login">
+        <div className="splash-image" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)` }}>
+        <PageH sectionName='Login'/>
+        <Card className ="login-card">
+        <div className='form'>
+          <div className='form-fields'>
+            <div className='form-input'>
+              <label htmlFor='email'>Email</label>
+              <input 
+              type='email' 
+              name='email' 
+              placeholder='user@codepath.org' 
+              value={form.email} 
+              onChange={handleOnInputChange}/>
+              {errors.email && <span className="error">{errors.email}</span>}
             </div>
+            <div className='form-input'>
+              <label htmlFor='password'>Password</label>
+              <input 
+              type='password' 
+              name='password' 
+              placeholder='password' 
+              value={form.password} 
+              onChange={handleOnInputChange}/>
             </div>
+            {errors.form && <span className="error">{errors.form}</span>}
+            <button className='login-btn' onClick={handleOnSubmit}>
+              {isLoading ? <>Loading</> : <>Login</>}
+            </button>
+          </div>
         </div>
+        <div className='login-footer'>
+          <p>Don't have an account? Sign up <Link to="/register">here</Link></p>
+        </div>
+        </Card>
+        </div>
+      </div>
     )
-}
+  }
+

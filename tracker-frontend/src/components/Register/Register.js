@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import Card from '../Card/Card';
-import InputField from '../InputField/InputField';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
+//import InputField from '../InputField/InputField';
+//import Button from '../Button/Button';
+//import Input from '../Input/Input';
 import { useNavigate } from "react-router-dom"
 import API from '../../services/apiClient'
-//import PageH from '../PageH/PageH'
+import PageH from '../PageH/PageH'
 
 
 export default function Register({ setAppState }) {
@@ -93,94 +93,89 @@ export default function Register({ setAppState }) {
     navigate("/activity")
   }
 
-    return (
-        <div className="Register">
-            <div className="splash-image" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1486739985386-d4fae04ca6f7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80)` }}>
-            < div className = "container">
-            <Card className ="register-card">
-            <h2>Create an Account</h2>
-            {errors.form && <div className="error">{errors.form}</div>}
-            <br />
-            
-                <div className="form">
-                    <InputField name="email" label="Email" >
-                        <Input 
-                         onChange={handleOnInputChange}
-                            type="email"
-                            name="email"
-                            placeholder="user@gmail.com"
-                            
-                        />
-                         {errors.email && <div className="error">{errors.email}</div>}
-                    </InputField>
-                    <InputField name="username" label="Username" >
-                         <Input
-                            type="text"
-                            name="username"
-                            placeholder="your_username"
-                            value={form.username}
-                            onChange={handleOnInputChange}
-                        />
-                    </InputField>
+  return (
+    <div className="Register">
+      <div className="splash-image" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1486739985386-d4fae04ca6f7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80)` }}>
+      
+      <PageH sectionName='Create an Account'/>
+      <Card className ="register-card">
+      <div className='form'>
+        <div className='form-fields'>
+          <div className='form-input-name'>
+            <div className='form-input'>
+              <label htmlFor='name'>First Name</label>
+              <input 
+              type='text' 
+              name='firstName' 
+              placeholder='John' 
+              value={form.firstName} 
+              onChange={handleOnInputChange} />
+            </div>
+            <div className='form-input'>
+              <label htmlFor='name'>Last Name</label>
+              <input 
+              type='text' 
+              name='lastName' 
+              placeholder='Doe' 
+              value={form.lastName} 
+              onChange={handleOnInputChange} />
+            </div>
+          </div>
 
-               
-                    <InputField name="firstName" label="First Name"  className="flex-1">
-                        <Input
-                            type="text"
-                            name="firstName"
-                            placeholder="Jane"
-                            value={form.firstName}
-                            onChange={handleOnInputChange}
-                  />
-                    </InputField>
+          <div className='form-input'>
+              <label htmlFor='name'>Username</label>
+              <input 
+              type='text' 
+              name='username' 
+              placeholder='your_username' 
+              value={form.username} 
+              onChange={handleOnInputChange} />
+            </div>
+        
+          <div className="form-input">
+            <label htmlFor="email">Email</label>
+            <input 
+            type="email" 
+            name="email" 
+            placeholder="user@codepath.org" 
+            value={form.email} 
+            onChange={handleOnInputChange}/>
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div>
 
-                    <InputField name="lastName" label="Last Name"  className="flex-1">
-                        <Input
-                            type="text"
-                            name="lastName"
-                            placeholder="Doe"
-                            value={form.lastName}
-                            onChange={handleOnInputChange}
-                        />
-                    </InputField>
-                
+          <div className="form-input">
+            <label htmlFor="password">Password</label>
+            <input 
+            type="password" 
+            name="password" 
+            placeholder="password" value={form.password} 
+            onChange={handleOnInputChange}/>
+            {errors.password && <span className="error">{errors.password}</span>}
+          </div>
 
-                    <InputField name="password" label="Password">
-                        <Input
-                         onChange={handleOnInputChange}
-                            type="password"
-                            name="password"
-                            placeholder="password"
-                            value={form.password}
-                        />
-                        {errors.password && <span className="error">{errors.password}</span>}
-                    </InputField>
-
-                    <InputField name="passwordConfirm" label="Confirm Password" >
-                        <Input
-                            type="passwordConfirm"
-                            name="passwordConfirm"
-                            placeholder="confirm password"
-                            value={form.passwordConfirm}
-                            onChange={handleOnInputChange}
-                  
-                        />
-                         {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
-                    </InputField>
-
-                    <p className="to-login">
+          <div className="form-input">
+            <label htmlFor="passwordConfirm">Confirm Password</label>
+            <input 
+            type="password" 
+            name="passwordConfirm"
+             placeholder="confirm password" 
+             value={form.passwordConfirm} 
+             onChange={handleOnInputChange}/>
+            {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
+          </div>
+          <p className="to-login">
                          Already have an account? Login <Link to="/login">here.</Link>
-                    </p>
-                    {errors.form && <span className="error">{errors.form}</span>}
-                    <Button onClick={handleOnSubmit}
-                         type = 'submit' > 
-                         {isLoading ? <>Loading</> : <>Register</>}
-                        
-                    </Button>
-                </div>
-            </Card>
-            </div>
-            </div>
+          </p>
+          {errors.form && <span className="error">{errors.form}</span>}
+          <button className='signup-btn' onClick={handleOnSubmit}>
+            {isLoading ? <>Loading</> : <>Register</>}
+          </button>
         </div>
-    )
+        </div>
+        </Card>
+      </div>
+    </div>
+  )
 }
+
+   

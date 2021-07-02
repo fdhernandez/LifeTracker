@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 const { createUserJwt } = require('../utils/tokens')
-const { requireAuthenticateUser } = require('../middleware/security')
+const { requireAuthenticatedUser } = require('../middleware/security')
 
 
 router.post('/login', async (req, res, next) => {
@@ -26,7 +26,7 @@ router.post('/register', async (req, res, next) => {
   }
 }) 
 
-router.get('/me', requireAuthenticateUser, async (req, res, next) => {
+router.get('/me', requireAuthenticatedUser, async (req, res, next) => {
   try {
     const { username } = res.locals.user
     console.log(username)

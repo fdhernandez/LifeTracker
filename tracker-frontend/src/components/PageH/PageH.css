@@ -1,8 +1,8 @@
-.PageHeader {
-    background-color: #006;
-    color: #fff;
+.PageH {
+    
+    color:black;
     text-transform: uppercase;
-    height: 150px;
+    height: 80px;
     
     font-size: 30px;
     display: flex;

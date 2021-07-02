@@ -7,13 +7,14 @@
 }
 .activity-btns a {
   text-decoration: none;
-  font-family: 'Baloo 2', cursive;
+  font-family: "Times New Roman", Times, serif;
   border-radius: 10px;
   font-size: 18px;
   margin: 18px;
   font-weight: 500;
   padding: 5px;
-  background-color: #fff;
+  background-color: rgb(36, 136, 202);
+  color: black;
 }
 .exercise-btn {
   color: #00796b;
