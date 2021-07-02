@@ -49,7 +49,7 @@ export default function Login ({ user, setUser }) {
     return (
         <div className="Login">
             <div className="splash-image" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)` }}>
-            < div className = "conatiner">
+            < div className = "container">
             <Card className ="login-card">
             <h2>Sign In</h2>
             {errors.form && <div className="error">{errors.form}</div>}
