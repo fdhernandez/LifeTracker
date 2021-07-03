@@ -10,23 +10,23 @@ export default function Exercise({ user, setAppState, exercises = []}) {
       {isAuthenticated ? 
       <>
         <PageH sectionName='Exercise'/>
-        <div className='aty-btn'>
+        <div className='ex-btn'>
           <Link className='exercise-btn' to='/exercise/create'>Add an Exercise</Link>
         </div>
         
-        <div className='aty-section'>
+        <div className='ex-section'>
           {exercises.length > 0 ?
             exercises.map((item) => (
-              <div key={item.id} className='aty-card'>
-                <div className='aty-type'>
-                  <div className='aty-name'>{item.name}</div>
-                  <div className='aty-category'>{item.category}</div>
+              <div key={item.id} className='ex-card'>
+                <div className='ex-type'>
+                  <div className='ex-name'>{item.name}</div>
+                  <div className='ex-category'>{item.category}</div>
                 </div>
-                <div className='aty-stats'>
+                <div className='ex-stats'>
                   <div>Duration: <span>{item.duration}</span></div>
                   <div>Intensity: <span>{item.intensity}</span></div>
                 </div>
-                <div className='aty-meta'>
+                <div className='ex-meta'>
                   <div>{new Date(item.date).toLocaleString()}</div>
                 </div>
               </div>

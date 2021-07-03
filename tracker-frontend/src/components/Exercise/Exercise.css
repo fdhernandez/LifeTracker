@@ -1,8 +1,8 @@
-.aty-btn {
+.ex-btn {
     display: flex;
     justify-content: flex-end;
   }
-  .aty-btn a {
+  .ex-btn a {
     text-decoration: none;
     font-family: "Times New Roman", Times, serif;
     border-radius: 10px;
@@ -10,51 +10,52 @@
     margin: 18px;
     font-weight: 500;
     padding: 5px;
-    background-color: #fff;
+    background-color: #4db6ac;
+    color:black;
   }
   
-  .aty-section {
+  .ex-section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
-  .aty-card {
+  .ex-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 360px;
     height: 200;
     padding: 16px 32px;
-    background-color: #fff;
+    background-color: #00bcd4;
     border-radius: 20px;
     margin: 20px;
   }
-  .aty-type {
+  .ex-type {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     text-transform: uppercase;
     align-items: center;
   }
-  .aty-name {
+  .ex-name {
     font-size: 25px;
   }
-  .aty-category {
+  .ex-category {
     border: 2px solid #000;
     font-size: 16px;
     padding: 2px 4px;
     border-radius: 6px;
   }
-  .aty-stats {
+  .ex-stats {
     display: flex;
     flex-direction: column;
   }
-  .aty-stats > div {
+  .ex-stats > div {
     font-size: 20px;
   
   }
-  .aty-stats > div > span {
+  .ex-stats > div > span {
     font-size: 18px;
   }
  

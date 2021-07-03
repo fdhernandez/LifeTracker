@@ -16,19 +16,19 @@ export default function Activity({ user, setAppState, totalExerciseTime = 0, avg
         <Link to='/nutrition/create' className='nutrition-btn'>Add Nutrition</Link>
         <Link to='/sleep/create' className='sleep-btn'>Add Sleep</Link>
       </div>
-      <div className='aty-section'>
-        <div className='aty-card'>
-          <div className='aty-stats'>
+      <div className='ex-section'>
+        <div className='ex-card'>
+          <div className='ex-stats'>
             <div>Total Exercise Time: <span>{totalExerciseTime}</span></div>
           </div>
         </div>
-        <div className='aty-card'>
-          <div className='aty-stats'>
+        <div className='ex-card'>
+          <div className='ex-stats'>
             <div>Average Daily Calories: <span>{parseFloat(avgCalories).toFixed(2)}</span></div>
           </div>
         </div>
-        <div className='aty-card'>
-          <div className='aty-stats'>
+        <div className='ex-card'>
+          <div className='ex-stats'>
             <div>Average Sleep Hours: <span>{parseFloat(avgSleepTime).toFixed(2)}</span></div>
           </div>
         </div>

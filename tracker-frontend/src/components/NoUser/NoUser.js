@@ -4,7 +4,7 @@ import './NoUser.css'
 export default function NoUser({ page }) {
   return (
     <div className='NoUser'>
-      <p>Login <Link to='/login'>here</Link> to see your {page}</p>
+      <p>Login <Link to='/login'>here</Link> for your {page}</p>
     </div>
   )
 }
