@@ -27,7 +27,7 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 - [X] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
 - [X] The activity tracked should be given a unique id for easy lookup.
   
-  * [Table Schema](`./tracker-backend/life-tracker-schema.sql` ) 
+  * [Table Schema](./tracker-backend/life-tracker-schema.sql ) 
 
 ### Stretch Features
 
@@ -39,12 +39,12 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`https://www.loom.com/share/e28d968f0b814c2cbf25d47bcbd9c4b8`
-`<div style="position: relative; padding-bottom: 63.4941329856584%; height: 0;"><iframe src="https://www.loom.com/embed/e28d968f0b814c2cbf25d47bcbd9c4b8" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>`
+https://www.loom.com/share/e28d968f0b814c2cbf25d47bcbd9c4b8
+<div style="position: relative; padding-bottom: 63.4941329856584%; height: 0;"><iframe src="https://www.loom.com/embed/e28d968f0b814c2cbf25d47bcbd9c4b8" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 Token:
-`https://www.loom.com/share/14c16670592142e28f30f815e66f1a3b`
-`<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/14c16670592142e28f30f815e66f1a3b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>`
+https://www.loom.com/share/14c16670592142e28f30f815e66f1a3b
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/14c16670592142e28f30f815e66f1a3b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ### Reflection
 
